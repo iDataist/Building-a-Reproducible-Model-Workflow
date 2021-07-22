@@ -92,26 +92,6 @@ mlflow run . \
   -P hydra_options="modeling.random_forest.max_depth=10,50,100 modeling.random_forest.n_estimators=100,200,500 -m"
 ```
 
-## In case of errors
-If there are errors in the `conda.yml` file, you might end up with an environment for the pipeline or one of the components that is corrupted. Most of the time `mlflow` realizes that and creates a new one every time you try
-to fix the problem. However, sometimes this does not happen, especially if the problem was in the `pip` dependencies.
-In that case, you might want to clean up all conda environments created by `mlflow` and try again. In order to do so,
-you can get a list of the environments you are about to remove by executing:
-
-```
-> conda info --envs | grep mlflow | cut -f1 -d" "
-```
-
-If you are ok with that list, execute this command to clean them up:
-
-**_NOTE_**: this will remove *ALL* the environments with a name starting with `mlflow`. Use at your own risk
-
-```
-> for e in $(conda info --envs | grep mlflow | cut -f1 -d" "); do conda uninstall --name $e --all -y;done
-```
-
-This will iterate over all the environments created by `mlflow` and remove them.
-
 ### Visualize the pipeline
 You can now go to W&B, go the Artifacts section, select the model export artifact then click on the
 ``Graph view`` tab. You will see a representation of your pipeline.
@@ -142,3 +122,23 @@ train the model on a new sample of data that our company received (``sample2.csv
 
 **_NOTE_**: the file ``sample2.csv`` contains more data than ``sample1.csv`` so the training will
             be a little slower.
+
+### In case of errors
+If there are errors in the `conda.yml` file, you might end up with an environment for the pipeline or one of the components that is corrupted. Most of the time `mlflow` realizes that and creates a new one every time you try
+to fix the problem. However, sometimes this does not happen, especially if the problem was in the `pip` dependencies.
+In that case, you might want to clean up all conda environments created by `mlflow` and try again. In order to do so,
+you can get a list of the environments you are about to remove by executing:
+
+```
+> conda info --envs | grep mlflow | cut -f1 -d" "
+```
+
+If you are ok with that list, execute this command to clean them up:
+
+**_NOTE_**: this will remove *ALL* the environments with a name starting with `mlflow`. Use at your own risk
+
+```
+> for e in $(conda info --envs | grep mlflow | cut -f1 -d" "); do conda uninstall --name $e --all -y;done
+```
+
+This will iterate over all the environments created by `mlflow` and remove them.
