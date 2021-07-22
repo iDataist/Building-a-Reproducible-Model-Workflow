@@ -115,7 +115,7 @@ Let's now test that we can run the release using ``mlflow`` without any other pr
 train the model on a new sample of data that our company received (``sample2.csv``):
 
 ```bash
-> mlflow run https://github.com/[your github username]/nd0821-c2-build-model-workflow-starter.git \
+> mlflow run https://github.com/iDataist/Building-a-Reproducible-Model-Workflow \
              -v 1.0.0 \
              -P hydra_options="etl.sample='sample2.csv'"
 ```
