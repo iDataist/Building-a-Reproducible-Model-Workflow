@@ -1,13 +1,13 @@
-#!/usr/bin/env python
-"""
-This script download a URL to a local destination
-"""
 import argparse
 import logging
 import wandb
 import sys
 import os
-sys.path.insert(1, '/Users/huiren/Downloads/Building a Reproducible Model Workflow/src/wandb_utils')
+sys.path.insert(
+    1,
+    "/Users/huiren/Downloads/Building a Reproducible Model"
+    " Workflow/src/wandb_utils",
+)
 from log_artifact import log_artifact
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)-15s %(message)s")
@@ -31,16 +31,26 @@ def go(args):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Download URL to a local destination")
-
-    parser.add_argument("sample", type=str, help="Name of the sample to download")
-
-    parser.add_argument("artifact_name", type=str, help="Name for the output artifact")
-
-    parser.add_argument("artifact_type", type=str, help="Output artifact type.")
+    parser = argparse.ArgumentParser(
+        description="Download URL to a local destination"
+    )
 
     parser.add_argument(
-        "artifact_description", type=str, help="A brief description of this artifact"
+        "sample", type=str, help="Name of the sample to download"
+    )
+
+    parser.add_argument(
+        "artifact_name", type=str, help="Name for the output artifact"
+    )
+
+    parser.add_argument(
+        "artifact_type", type=str, help="Output artifact type."
+    )
+
+    parser.add_argument(
+        "artifact_description",
+        type=str,
+        help="A brief description of this artifact",
     )
 
     args = parser.parse_args()

@@ -11,12 +11,10 @@ def pytest_addoption(parser):
     parser.addoption("--max_price", action="store")
 
 
-@pytest.fixture(scope='session')
+@pytest.fixture(scope="session")
 def data(request):
     run = wandb.init(job_type="data_tests", resume=True)
 
-    # Download input artifact. This will also note that this script is using this
-    # particular version of the artifact
     data_path = run.use_artifact(request.config.option.csv).file()
 
     if data_path is None:
@@ -27,12 +25,10 @@ def data(request):
     return df
 
 
-@pytest.fixture(scope='session')
+@pytest.fixture(scope="session")
 def ref_data(request):
     run = wandb.init(job_type="data_tests", resume=True)
 
-    # Download input artifact. This will also note that this script is using this
-    # particular version of the artifact
     data_path = run.use_artifact(request.config.option.ref).file()
 
     if data_path is None:
@@ -43,7 +39,7 @@ def ref_data(request):
     return df
 
 
-@pytest.fixture(scope='session')
+@pytest.fixture(scope="session")
 def kl_threshold(request):
     kl_threshold = request.config.option.kl_threshold
 
@@ -52,7 +48,8 @@ def kl_threshold(request):
 
     return float(kl_threshold)
 
-@pytest.fixture(scope='session')
+
+@pytest.fixture(scope="session")
 def min_price(request):
     min_price = request.config.option.min_price
 
@@ -61,7 +58,8 @@ def min_price(request):
 
     return float(min_price)
 
-@pytest.fixture(scope='session')
+
+@pytest.fixture(scope="session")
 def max_price(request):
     max_price = request.config.option.max_price
 
