@@ -9,7 +9,7 @@ file provided in the root of the repository and activate it:
 
 ```bash
 > conda env create -f environment.yml
-> conda activate nyc_airbnb_dev
+> conda activate [NAME_OF_ENV]
 ```
 
 ### Get API key for Weights and Biases
