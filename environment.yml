@@ -1,4 +1,4 @@
-name: nyc_airbnb_dev
+name: predict_rental_price
 channels:
   - conda-forge
   - defaults
