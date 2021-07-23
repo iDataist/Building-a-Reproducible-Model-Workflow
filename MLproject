@@ -1,4 +1,4 @@
-name: nyc_airbnb
+name: predict_rental_price
 conda_env: conda.yml
 
 entry_points:
