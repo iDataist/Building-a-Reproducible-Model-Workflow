@@ -1,5 +1,5 @@
 main:
-  project_name: nyc_airbnb
+  project_name: predict_rental_price
   experiment_name: development
   steps: all
 etl:
