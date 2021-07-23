@@ -1,5 +1,5 @@
 # Build an ML Pipeline for Short-Term Rental Prices in NYC
-## Project Overview
+## Overview
 A property management company rents rooms and properties for short periods of  time on various rental platforms. I built an end-to-end pipeline to help the company estimate the typical price for a given property based on the price of similar properties. New data arrives in bulk every week. The end-to-end pipeline enables the model retraining with the same cadence. 
 
 ## Project steps
